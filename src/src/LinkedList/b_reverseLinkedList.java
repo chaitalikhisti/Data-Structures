@@ -110,6 +110,9 @@ public class b_reverseLinkedList
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter LinkedList Size: ");
         int size  = sc.nextInt();
+        /*
+            Method 1 : create and reverse Linked List from scratch
+        */
         b_reverseLinkedList rlist = new b_reverseLinkedList();
         System.out.println("Enter Nodes: ");
         // create list
@@ -122,5 +125,22 @@ public class b_reverseLinkedList
         //print reversed list
         System.out.println("Reversed Linked List: ");
         rlist.printList();
+        /*
+            Method 2 : create and reverse Linked List using Collections
+        */
+        System.out.println("LinkedList using Collections");
+        LinkedList rlist1 = new LinkedList();
+        System.out.println("Enter Nodes: ");
+        for (int i = 1; i <= size; i++)
+        {
+            rlist1.add(sc.nextInt());
+        }
+        System.out.println("Linked List: " +rlist1);
+        Iterator rIterator = rlist1.descendingIterator();
+        System.out.println("Reversed Linked List: ");
+        while (rIterator.hasNext())
+        {
+            System.out.print(rIterator.next() + " ");
+        }
     }
 }
