@@ -14,6 +14,11 @@ public class b_reverseLinkedList
         this.head = someHead;
     }
 
+    public void reverseListRecursion()
+    {
+        reverseList(head);
+    }
+
     //create class node
     static class Node
     {
@@ -105,6 +110,23 @@ public class b_reverseLinkedList
         }
         head = current;
     }
+
+    public static void reverseList(Node givenNode)
+    {
+        if (givenNode == null)
+        {
+            System.out.println("given node == null");
+            return;
+        }
+        if (givenNode.getNext() == null)
+        {
+            head = givenNode;
+            return;
+        }
+        reverseList(givenNode.getNext());
+        givenNode.getNext().setNext(givenNode);
+        givenNode.setNext(null);
+    }
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
@@ -122,6 +144,8 @@ public class b_reverseLinkedList
         rlist.printList();
         //reverse the list
         rlist.reverseList();
+        // or reverse the list using recursive method
+        //rlist.reverseListRecursion();
         //print reversed list
         System.out.println("Reversed Linked List: ");
         rlist.printList();
