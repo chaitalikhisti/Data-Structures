@@ -1,6 +1,9 @@
 package LinkedList;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Collections;
 
 public class a_LinkedList
 {
@@ -43,34 +46,10 @@ public class a_LinkedList
         }
     }
 
-    // print list
-    public static void printList()
+    //create list
+    public static void createList(Scanner scan, int listSize)
     {
-        Node temp = head;
-        while (temp != null)
-        {
-            if (temp.getNext() == null)
-            {
-                System.out.print(temp.getData());
-                temp = temp.getNext();
-            }
-            else
-            {
-                System.out.print(temp.getData()+ " -> ");
-                temp = temp.getNext();
-            }
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter LinkedList Size: ");
-        int size  = sc.nextInt();
-        a_LinkedList list = new a_LinkedList();
-        System.out.println("Enter Nodes: ");
-        // create list
-        if (size <= 1)
+        if (listSize <= 1)
         {
             System.out.println("Size <= 1");
             return;
@@ -78,9 +57,9 @@ public class a_LinkedList
         else {
             Node temp = null;
             int nodeName;
-            for (int i = 1; i <= size; i++)
+            for (int i = 1; i <= listSize; i++)
             {
-                Node n = new Node(sc.nextInt());
+                Node n = new Node(scan.nextInt());
                 if (head == null)
                 {
                     head = n;
@@ -93,8 +72,53 @@ public class a_LinkedList
                 }
             }
         }
+    }
+
+    // print list
+    public static void printList()
+    {
+        System.out.print("Linked List: ");
+        Node temp = head;
+        while (temp != null)
+        {
+            if (temp.getNext() == null)
+            {
+                System.out.print(temp.getData());
+                temp = temp.getNext();
+            }
+            else
+            {
+                System.out.print(temp.getData() + " ");
+                temp = temp.getNext();
+            }
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter LinkedList Size: ");
+        int size  = sc.nextInt();
+        System.out.println("LinkedList using Method");
+        a_LinkedList list = new a_LinkedList();
+        System.out.println("Enter Nodes: ");
+        /*
+            Method 1 : create Linked List from scratch
+        */
+        // create list
+        list.createList(sc, size);
         // print list
         list.printList();
-
+        /*
+            Method 2 : create Linked List using Collections
+        */
+        System.out.println("LinkedList using Collections");
+        List<Integer> list1 = new LinkedList<>();
+        System.out.println("Enter Nodes: ");
+        for (int i = 1; i <= size; i++)
+        {
+            list1.add(sc.nextInt());
+        }
+        System.out.println("Linked List: " +list1);
     }
 }
