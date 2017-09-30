@@ -24,9 +24,9 @@ public class a_basicImplementation
     }
 
     //stack push method
-    public void push(int intToBePushed)
+    public void push(int pushInt)
     {
-        stackArray[++top] = intToBePushed;
+        stackArray[++top] = pushInt;
     }
 
     //stack pop method
@@ -73,9 +73,11 @@ public class a_basicImplementation
     {
         int[] array = {1, 2, 3, 4, 5};
         int size = array.length;
+
         /***
          *  METHOD 1: STACK IMPLEMENTATION
-         ***/
+        ***/
+
         System.out.println("Stack basic implementation");
         a_basicImplementation basicStack = new a_basicImplementation(size);
         //pushing elements in stack
@@ -89,9 +91,10 @@ public class a_basicImplementation
             System.out.print(basicStack.pop());
         }
         System.out.println();
+
         /***
          *  METHOD 2: LINKED LIST AS A STACK
-         ***/
+        ***/
         System.out.println("LinkedList as a Stack");
         LinkedList<Integer> listAsStack = new LinkedList<>();
         //pushing elements in stack
@@ -108,7 +111,7 @@ public class a_basicImplementation
 
         /***
          *  METHOD 2: IN-BUILT STACK
-         ***/
+        ***/
         System.out.println("Stack in-built Data Structure");
         Stack inBuiltStack = new Stack();
         //pushing elements in stack

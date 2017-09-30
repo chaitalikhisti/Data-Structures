@@ -1,6 +1,6 @@
-package StringCompression;
+package Strings;
 
-public class stringComp
+public class a_stringComp
 {
     public static void main(String[] args)
     {
